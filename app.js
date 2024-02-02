@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const userRoute = require('./api/routes/user');
+const accountRoute = require('./api/routes/account');
 
 const dotenv = require('dotenv'); 
 dotenv.config();
@@ -23,6 +24,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use('/user', userRoute);
+app.use('/account', accountRoute);
 
 app.use((req, res, next) => {
   res.status(200).json({
